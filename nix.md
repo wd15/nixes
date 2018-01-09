@@ -1,5 +1,11 @@
 # Nix Notes
 
+## Nice Tutorials
+
+https://gricad.github.io/calcul/nix/tuto/2017/07/04/nix-tutorial.html#install-nix-single-user-mode
+
+
+
 ## After Installing
 
 Set up Nix so that you just need to do `source ~/nix.sh` to use it
@@ -32,6 +38,36 @@ This seems to work, but I can't find documentation for this. It doesn't have any
 
 ## Generations
 
+How to roll back
+
+    $ nix-env --list-generations
+    
+to go to a particular generation
+
+    $ nix-env --switch-generation <generation-number>
+    
+## Packages
+
+List packages
+
+    $ nix-env -q
+    
+Install `nix-env -i <package>` and uninstall `nix-env -e <package>`.
+
+## Building a Package
+
+To build use
+
+    $ nix-build builder.nix
+    
+and to install
+
+    $ nix-env -i ./result
+    
+and to debug
+
+    $ nix-shell --pure builder.nix
+    
 
 
 
