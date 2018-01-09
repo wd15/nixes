@@ -1,10 +1,8 @@
 # Nix Notes
 
-## Nice Tutorials
+## Nice Tutorial
 
 https://gricad.github.io/calcul/nix/tuto/2017/07/04/nix-tutorial.html#install-nix-single-user-mode
-
-
 
 ## After Installing
 
@@ -14,7 +12,7 @@ Set up Nix so that you just need to do `source ~/nix.sh` to use it
     
 Possibly do this for purity (this is a choice):
 
-    $ echo -e "export PATH=/bin\n$(cat ~/nix.sh)" > ~/nix.sh
+    $ echo -e "export PATH=/bin:/usr/bin\n$(cat ~/nix.sh)" > ~/nix.sh
     
 Update the path again
 
