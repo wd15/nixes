@@ -12,15 +12,15 @@ Set up Nix so that you just need to do `source ~/nix.sh` to use it
 
     $ cp /nix/var/nix/profiles/default/etc/profile.d/nix.sh ~/nix.sh
     
-Trying this:
+Possibly do this for purity (this is a choice):
 
-   $ echo "export PATH=/nix/var/nix/profiles/default/bin:/bin" >> ~/nix.sh
-
-instead of this:
+    $ echo -e "export PATH=/bin\n$(cat ~/nix.sh)" > ~/nix.sh
+    
+Update the path again
 
     $ echo "export PATH=/nix/var/nix/profiles/default/bin:\$PATH" >> ~/nix.sh
     
-to keep it more pure. Also add this env variable, which is useful:
+Also add this env variable, which is useful:
 
     $ echo "export NIX_USER_PROFILE_DIR=/nix/var/nix/profiles/per-user/\$USER " >> ~/nix.sh
     
