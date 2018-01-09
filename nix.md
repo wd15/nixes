@@ -12,11 +12,11 @@ Set up Nix so that you just need to do `source ~/nix.sh` to use it
     
 Possibly do this for purity (this is a choice):
 
-    $ echo -e "export PATH=/bin:/usr/bin\n$(cat ~/nix.sh)" > ~/nix.sh
+    $ echo -e "unset PATH\n$(cat ~/nix.sh)" > ~/nix.sh
     
 Update the path again
 
-    $ echo "export PATH=/nix/var/nix/profiles/default/bin:\$PATH" >> ~/nix.sh
+    $ echo "export PATH=\$PATH:/nix/var/nix/profiles/default/bin:/bin:/usr/bin" >> ~/nix.sh
     
 Also add this env variable, which is useful:
 
