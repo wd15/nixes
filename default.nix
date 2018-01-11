@@ -9,6 +9,9 @@ let jekyll_env = bundlerEnv rec {
   };
 in
   stdenv.mkDerivation rec {
-    name = "jekyll_env";
-    buildInputs = [ jekyll_env ];
+    name = "env";
+    buildInputs = [
+      jekyll_env
+      python36
+    ];
   }
