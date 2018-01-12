@@ -4,10 +4,13 @@ Trying to use Nix to build the PFHub website based on the exisisting [`travis.ym
 
 [Install Nix](https://nixos.org/nix/manual/#chap-quick-start).
 
-and then
+and then clone PFHub and this Gist.
 
     $ git clone https://github.com/usnistgov/chimad-phase-field.git
+    $ git clone https://gist.github.com/wd15/ee4beac60b4efb4b1d7c581ee435eccd pfhub-nix
+    $ cd pfhub-nix
     $ nix-shell
+    [nix-shell]$ cd ../chimad-phase-field
     [nix-shell]$ jekyll serve
     
 ## Update the installation files
