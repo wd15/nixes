@@ -13,5 +13,7 @@ in
     buildInputs = [
       jekyll_env
       python36
+      python36.pkgs.numpy
+      python36.pkgs.pylint
     ];
   }
