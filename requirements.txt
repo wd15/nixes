@@ -2,3 +2,8 @@ progressbar2
 pykwalify
 pylint
 vega
+coverage
+nbformat
+jupyter-client
+six
+pytest
