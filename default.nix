@@ -14,6 +14,8 @@ in
     buildInputs = [
       jekyll_env
       python36
+      python36.pkgs.numpy
+      python36.pkgs.pylint
       python36Packages.numpy
       python36Packages.jupyter
       python36Packages.pillow
