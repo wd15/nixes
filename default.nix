@@ -7,17 +7,15 @@ let jekyll_env = bundlerEnv rec {
     lockfile = ./Gemfile.lock;
     gemset = ./gemset.nix;
   };
-  python = import ./requirements.nix { inherit pkgs; };
+  pypi2nix = import ./requirements.nix { inherit pkgs; };
+  nbval = import ./nbval.nix;
 in
   stdenv.mkDerivation rec {
     name = "env";
     buildInputs = [
       jekyll_env
       python36
-      python36.pkgs.numpy
-      python36.pkgs.pylint
-      python36Packages.numpy
-      python36Packages.jupyter
+      # python36Packages.jupyter
       python36Packages.pillow
       python36Packages.numpy
       python36Packages.toolz
@@ -25,9 +23,10 @@ in
       python36Packages.bokeh
       python36Packages.matplotlib
       python36Packages.flake8
-      python.packages."progressbar2"
-      python.packages."pykwalify"
-      python.packages."pylint"
-      python.packages."vega"
+      python36Packages.pylint
+      pypi2nix.packages."pykwalify"
+      pypi2nix.packages."vega"
+      pypi2nix.packages."progressbar2"
+      nbval
     ];
   }
