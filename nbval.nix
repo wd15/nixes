@@ -5,15 +5,20 @@ let
   pypi2nix = import ./requirements.nix { inherit pkgs; };
 in
   pypi2nix.mkDerivation {
-  name = "nbval-4.7.0";
-  src = pkgs.fetchurl { url = "https://pypi.python.org/packages/cc/a8/1fb1a6a08c1016204cfa747f44de1e405fc5968ae075068a654d633164ab/ipykernel-4.7.0.tar.gz"; sha256 = "354986612a38f0555c43d5af2425e2a67506b63b313a0325e38904003b9d977b"; };
-
+  name = "nbval-0.9.0";
+  src = pkgs.fetchurl {
+    url = "https://pypi.python.org/packages/58/ce/d705c865bdec10ab94c1c57b76e77f07241ef5c11c4976ec7e00de259f92/nbval-0.9.0.tar.gz";
+    sha256 = "dec2a26bb32a29f92a577554b7142f960b8a91bca8cfaf23f4238718197bf7f3";
+  };
+  doCheck=false;
   buildInputs = [
     python36Packages.ipython
     python36Packages.jupyter_client
     python36Packages.tornado
-    python36Packages.nose
-    python36Packages.matplotlib
+    python36Packages.nbformat
+    python36Packages.ipykernel
+    python36Packages.coverage
+    python36Packages.pytest
   ];
 
 }
