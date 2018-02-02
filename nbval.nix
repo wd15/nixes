@@ -1,8 +1,8 @@
-with import <nixpkgs> { };
-
+{ pkgs ? import <nixpkgs> {}
+}:
 let
-  hello = 1;
   pypi2nix = import ./requirements.nix { inherit pkgs; };
+  python36Packages = pkgs.python36Packages;
 in
   pypi2nix.mkDerivation {
   name = "nbval-0.9.0";

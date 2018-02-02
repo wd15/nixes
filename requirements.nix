@@ -7,7 +7,6 @@
 
 { pkgs ? import <nixpkgs> {}
 }:
-
 let
 
   inherit (pkgs) makeWrapper;
@@ -199,7 +198,7 @@ let
   localOverridesFile = ./requirements_override.nix;
   overrides = import localOverridesFile { inherit pkgs python; };
   commonOverrides = [
-    
+
   ];
   allOverrides =
     (if (builtins.pathExists localOverridesFile)

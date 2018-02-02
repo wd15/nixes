@@ -1,16 +1,21 @@
-with import <nixpkgs> { };
-
-let jekyll_env = bundlerEnv rec {
+#with import <nixpkgs> { };
+{
+  nixpkgs ? import (fetchTarball "https://github.com/jb55/nixpkgs/archive/39cd40f7bea40116ecb756d46a687bfd0d2e550e.tar.gz") {}
+}:
+let
+  jekyll_env = nixpkgs.bundlerEnv rec {
     name = "jekyll_env";
-    ruby = ruby_2_2;
+    ruby = nixpkgs.ruby_2_2;
     gemfile = ./Gemfile;
     lockfile = ./Gemfile.lock;
     gemset = ./gemset.nix;
   };
+  pkgs = nixpkgs.pkgs;
+  python36Packages = nixpkgs.python36Packages;
   pypi2nix = import ./requirements.nix { inherit pkgs; };
-  nbval = import ./nbval.nix;
+  nbval = import ./nbval.nix { inherit pkgs; };
 in
-  stdenv.mkDerivation rec {
+  nixpkgs.stdenv.mkDerivation rec {
     name = "env";
     buildInputs = [
       jekyll_env
@@ -26,5 +31,6 @@ in
       pypi2nix.packages."pykwalify"
       pypi2nix.packages."vega"
       pypi2nix.packages."progressbar2"
+      python36Packages.pytest
     ];
   }
