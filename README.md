@@ -15,6 +15,8 @@ and then clone PFHub and this Gist.
     
 ## Update the installation files
 
+This uses [Bundix](https://github.com/manveru/bundix).
+
 Update the `Gemfile` if necessary and then
 
     $ nix-shell -p bundler
