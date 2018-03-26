@@ -10,6 +10,10 @@ Set up Nix so that you just need to do `source ~/nix.sh` to use it
 
     $ cp /nix/var/nix/profiles/default/etc/profile.d/nix.sh ~/nix.sh
     
+Update permisssions:
+
+    $ chmod +w ~/nix.sh
+    
 Possibly do this for purity (this is a choice):
 
     $ echo -e "unset PATH\n$(cat ~/nix.sh)" > ~/nix.sh
