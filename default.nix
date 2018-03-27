@@ -1,11 +1,11 @@
-#with import <nixpkgs> { };
+# { nixpkgs ? import <nixpkgs> {} }:
 {
-  nixpkgs ? import (fetchTarball "https://github.com/jb55/nixpkgs/archive/39cd40f7bea40116ecb756d46a687bfd0d2e550e.tar.gz") {}
+  nixpkgs ? import (fetchTarball "https://github.com/jb55/nixpkgs/archive/1bc5bf4beb759e563ffc7a8a3067f10a00b45a7d.tar.gz") {}
 }:
 let
   jekyll_env = nixpkgs.bundlerEnv rec {
     name = "jekyll_env";
-    ruby = nixpkgs.ruby_2_2;
+    ruby = nixpkgs.ruby;
     gemfile = ./Gemfile;
     lockfile = ./Gemfile.lock;
     gemset = ./gemset.nix;
