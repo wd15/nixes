@@ -14,6 +14,7 @@ let
   python36Packages = nixpkgs.python36Packages;
   pypi2nix = import ./requirements.nix { inherit pkgs; };
   nbval = import ./nbval.nix { inherit pkgs; };
+  node = import ./node.nix { inherit pkgs; };
 in
   nixpkgs.stdenv.mkDerivation rec {
     name = "env";
@@ -32,5 +33,9 @@ in
       pypi2nix.packages."vega"
       pypi2nix.packages."progressbar2"
       python36Packages.pytest
+      node.mocha
+      node.coffeelint
+      node."assert"
+      node.surge
     ];
   }

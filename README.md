@@ -40,3 +40,14 @@ Using [pypi2nix](https://github.com/garbas/pypi2nix).
     $ pypi2nix -V "3.6" -r requirements.txt
 
 ## Javascript
+
+Install [node2nix](https://github.com/svanderburg/node2nix).
+
+    $ nix-env -f '<nixpkgs>' -iA nodePackages.node2nix
+
+Then run
+
+    $ node2nix --input node-packages.json --output node-packages.nix --composition node.nix
+
+Edit `node.nix` and replace `nodejs-4_x` with `nodejs` in the 5th
+line.
