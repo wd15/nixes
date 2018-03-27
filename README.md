@@ -12,10 +12,15 @@ and then clone PFHub and this Gist.
     $ nix-shell
     [nix-shell]$ cd ../chimad-phase-field
     [nix-shell]$ jekyll serve
-    
-## Update the installation files
 
-This uses [Bundix](https://github.com/manveru/bundix).
+## Update Packages
+
+The dependencies are all fixed in the above installation. To update
+the Python, Ruby and Javascript dependencies use the following
+
+## Ruby
+
+Using [Bundix](https://github.com/manveru/bundix).
 
 Update the `Gemfile` if necessary and then
 
@@ -25,5 +30,13 @@ Update the `Gemfile` if necessary and then
     [nix-shell]$ exit
     $ $(nix-build '<nixpkgs>' -A bundix)/bin/bundix
     $ rm result
-    
+
 This updates the installed gems.
+
+## Python
+
+Using [pypi2nix](https://github.com/garbas/pypi2nix).
+
+    $ pypi2nix -V "3.6" -r requirements.txt
+
+## Javascript
