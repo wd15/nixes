@@ -17,7 +17,8 @@ let
   node = import ./node.nix { inherit pkgs; };
 in
   nixpkgs.stdenv.mkDerivation rec {
-    name = "env";
+    name = "pfhub";
+    env = nixpkgs.buildEnv { name=name; paths=buildInputs; };
     buildInputs = [
       jekyll_env
       nbval
@@ -38,4 +39,5 @@ in
       node."assert"
       node.surge
     ];
-  }
+  src=./.;
+}
