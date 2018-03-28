@@ -10,7 +10,7 @@ RUN apt-get -y update
 RUN apt-get install -y git && apt-get clean
 RUN apt-get install -y sudo && apt-get clean
 RUN apt-get install -y bzip2 && apt-get clean
-# RUN apt-get install -y curl && apt-get clean
+RUN apt-get install -y curl && apt-get clean
 RUN apt-get -y update
 
 RUN useradd -m -s /bin/bash main
@@ -29,12 +29,27 @@ WORKDIR $HOME
 USER root
 
 RUN chown -R main:main /home/main
+RUN echo "main ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+RUN mkdir /etc/nix
+RUN echo "build-users-group =" > /etc/nix/nix.conf
 
 USER main
 
-## Install PFHub Requirements
+## Install Nix
 
-RUN bash <(curl https://nixos.org/nix/install)
+RUN curl https://nixos.org/nix/install > ./install.sh
+RUN bash ./install.sh
+# RUN sudo chmod 1777 /nix/var/nix/profiles/per-user
+# RUN sudo mkdir -m 1777 -p /nix/var/nix/gcroots/per-user
+# RUN sudo chmod 1777 /nix/var/nix/gcroots/per-user
+# RUN sudo chmod 1777 /home/main/.nix-defexpr
+RUN cp /nix/var/nix/profiles/default/etc/profile.d/nix.sh ~/nix.sh
+RUN chmod +w ~/nix.sh
+RUN echo "unset PATH" | cat - ~/nix.sh > temp && mv temp ~/nix.sh
+# RUN echo -e "unset PATH\n$(cat ~/nix.sh)" > ~/nix.sh
+RUN echo "export PATH=\$PATH:/nix/var/nix/profiles/default/bin:/bin:/usr/bin" >> ~/nix.sh
+RUN echo "export NIX_USER_PROFILE_DIR=/nix/var/nix/profiles/per-user/\$USER " >> ~/nix.sh
+
 
 ENV SHELL /bin/bash
 
