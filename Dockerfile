@@ -1,4 +1,4 @@
-From ubuntu:16.04
+From ubuntu:17.04
 
 MAINTAINER Daniel Wheeler <daniel.wheeler2@gmail.com>
 
@@ -39,16 +39,17 @@ USER main
 
 RUN curl https://nixos.org/nix/install > ./install.sh
 RUN bash ./install.sh
+RUN nix-store --init
 # RUN sudo chmod 1777 /nix/var/nix/profiles/per-user
 # RUN sudo mkdir -m 1777 -p /nix/var/nix/gcroots/per-user
 # RUN sudo chmod 1777 /nix/var/nix/gcroots/per-user
 # RUN sudo chmod 1777 /home/main/.nix-defexpr
-RUN cp /nix/var/nix/profiles/default/etc/profile.d/nix.sh ~/nix.sh
-RUN chmod +w ~/nix.sh
-RUN echo "unset PATH" | cat - ~/nix.sh > temp && mv temp ~/nix.sh
-# RUN echo -e "unset PATH\n$(cat ~/nix.sh)" > ~/nix.sh
-RUN echo "export PATH=\$PATH:/nix/var/nix/profiles/default/bin:/bin:/usr/bin" >> ~/nix.sh
-RUN echo "export NIX_USER_PROFILE_DIR=/nix/var/nix/profiles/per-user/\$USER " >> ~/nix.sh
+# RUN cp /nix/var/nix/profiles/default/etc/profile.d/nix.sh ~/nix.sh
+# RUN chmod +w ~/nix.sh
+# RUN echo "unset PATH" | cat - ~/nix.sh > temp && mv temp ~/nix.sh
+# # RUN echo -e "unset PATH\n$(cat ~/nix.sh)" > ~/nix.sh
+# RUN echo "export PATH=\$PATH:/nix/var/nix/profiles/default/bin:/bin:/usr/bin" >> ~/nix.sh
+# RUN echo "export NIX_USER_PROFILE_DIR=/nix/var/nix/profiles/per-user/\$USER " >> ~/nix.sh
 
 
 ENV SHELL /bin/bash
