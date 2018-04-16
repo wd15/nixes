@@ -1,24 +1,27 @@
-Trying to use Nix to build the PFHub website based on the exisisting [`travis.yml`](https://github.com/usnistgov/chimad-phase-field/blob/master/.travis.yml), which doesn't use Nix.
+# PFHub Nix Expression
 
-## Usage
+Nix expression to host the [PFHub website](https://github.com/usnistgov/pfhub).
 
-[Install Nix](https://nixos.org/nix/manual/#chap-quick-start).
+# Usage
 
-and then clone PFHub and this Gist.
+Follow the [Nix notes](../NIX-NOTES.md) for installing Nix. After installing Nix and cloning this repository, run
 
-    $ git clone https://github.com/usnistgov/chimad-phase-field.git
-    $ git clone https://gist.github.com/wd15/ee4beac60b4efb4b1d7c581ee435eccd pfhub-nix
-    $ cd pfhub-nix
     $ nix-shell
-    [nix-shell]$ cd ../chimad-phase-field
-    [nix-shell]$ jekyll serve
+
+in this repository. At that point, you should be able to run all the
+functionality in the [PFHub `travis.yml`
+file](https://github.com/usnistgov/pfhub/blob/master/.travis.yml) including
+
+    $ jekyll serve
+
+to view the website locally.
 
 ## Update Packages
 
 The dependencies are all fixed in the above installation. To update
 the Python, Ruby and Javascript dependencies use the following
 
-## Ruby
+### Ruby
 
 Using [Bundix](https://github.com/manveru/bundix).
 
@@ -33,13 +36,13 @@ Update the `Gemfile` if necessary and then
 
 This updates the installed gems.
 
-## Python
+### Python
 
 Using [pypi2nix](https://github.com/garbas/pypi2nix).
 
     $ pypi2nix -V "3.6" -r requirements.txt
 
-## Javascript
+### Javascript
 
 Install [node2nix](https://github.com/svanderburg/node2nix).
 
