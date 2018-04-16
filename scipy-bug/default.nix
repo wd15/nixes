@@ -1,5 +1,5 @@
 {
-  nixpkgs ? import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/120b013e0c082d58a5712cde0a7371ae8b25a601.tar.gz") {}
+  nixpkgs ? import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/6f416dc5d360da59d12b34694a5cea8a99a2ed5f.tar.gz") {}
 }:
 nixpkgs.stdenv.mkDerivation {
   name = "my-env";
