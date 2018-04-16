@@ -28,6 +28,9 @@ Also add this env variable, which is useful:
 
     $ echo "export NIX_USER_PROFILE_DIR=/nix/var/nix/profiles/per-user/\$USER " >> ~/nix.sh
 
+Set up the man pages correctly:
+
+    $ echo "export MANPATH=/nix/var/nix/profiles/default/share/man:\$HOME/.nix-profile/share/man:\$MANPATH" >> ~/nix.sh
 To start using Nix use
 
     $ source ~/nix.sh

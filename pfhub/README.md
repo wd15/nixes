@@ -4,13 +4,15 @@ Nix expression to host the [PFHub website](https://github.com/usnistgov/pfhub).
 
 # Usage
 
-Follow the [Nix notes](../NIX-NOTES.md) for installing Nix. After installing Nix and cloning this repository, run
+Follow the [Nix notes](../NIX-NOTES.md) for installing Nix. After
+installing Nix and cloning this repository, run
 
     $ nix-shell
 
-in this repository. At that point, you should be able to run all the
+in this directory. At that point, you should be able to run all the
 functionality in the [PFHub `travis.yml`
-file](https://github.com/usnistgov/pfhub/blob/master/.travis.yml) including
+file](https://github.com/usnistgov/pfhub/blob/master/.travis.yml)
+including
 
     $ jekyll serve
 
