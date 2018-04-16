@@ -1,0 +1,7 @@
+[
+    "npm",
+    "coffeelint",
+    "mocha",
+    "assert",
+    "surge"
+]
