@@ -20,11 +20,11 @@ and the run
 
 to see the bug for version 1.0.1. To not see th bug use
 
-   $ nix-shell default-old.nix
+    $ nix-shell default-old.nix
 
 and then run
 
-   $ python bug.py
+    $ python bug.py
 
 ## Help!
 
