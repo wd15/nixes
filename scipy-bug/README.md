@@ -1,6 +1,6 @@
 # Environment to Demo a Scipy Bug
 
-Nix expression to build a Python3.6 environement with Scipy and IPython.
+Nix expression to build a Python3.6 environment with Scipy and IPython.
 
 # Usage
 
