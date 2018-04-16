@@ -2,6 +2,8 @@
 
 ## Nice Tutorial
 
+Use this tutorial to get started with Nix
+
 https://gricad.github.io/calcul/nix/tuto/2017/07/04/nix-tutorial.html#install-nix-single-user-mode
 
 ## After Installing
@@ -14,7 +16,7 @@ Update permisssions:
 
     $ chmod +w ~/nix.sh
 
-Possibly do this for purity (this is a choice):
+Do this for purity:
 
     $ echo -e "unset PATH\n$(cat ~/nix.sh)" > ~/nix.sh
 

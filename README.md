@@ -1,8 +1,8 @@
 # A Small Nix Package Repository
 
-This is a small a repository of
+This is a small repository of
 [Nix](https://en.wikipedia.org/wiki/Nix_package_manager) expressions
-for [my](https://github.com/wd15) projects.
+for [my](https://github.com/wd15) own projects.
 
 ## Nix Usage
 
