@@ -6,6 +6,5 @@ stdenv.mkDerivation rec {
     python36
     python36Packages.scipy
     python36Packages.ipython
-    python36Packages.dask
   ];
 }

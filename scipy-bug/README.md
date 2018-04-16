@@ -1,5 +1,12 @@
-# Build Latest Scipy with Nix
+# Environment to Demo a Scipy Bug
 
-Install [pypi2nix](https://github.com/garbas/pypi2nix).
+ Nix expression to build a Python3.6 environement with Scipy and IPython.
 
-    $ pypi2nix -V "3.6" -r requirements.txt
+# Usage
+
+Follow the [Nix notes](../NIX-NOTES.md) for installing Nix. After
+installing Nix and cloning this repository, run
+
+    $ nix-shell
+
+in this repository.
