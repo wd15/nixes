@@ -14,11 +14,11 @@ or just
 
     $ nix-shell
 
-and the run
+and then run
 
     $ python bug.py
 
-to see the bug for version 1.0.1. To not see th bug use
+to see the bug for version 1.0.1. To see the version without the bug use
 
     $ nix-shell default-old.nix
 
