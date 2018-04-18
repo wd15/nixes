@@ -45,14 +45,13 @@ RUN /bin/bash -c "echo -e 'unset PATH\n$(cat ~/nix.sh)' > ~/nix.sh"
 RUN echo "export PATH=\$PATH:/nix/var/nix/profiles/default/bin:/bin:/usr/bin" >> ~/nix.sh
 RUN echo "export NIX_USER_PROFILE_DIR=/nix/var/nix/profiles/per-user/\$USER " >> ~/nix.sh
 RUN echo "export MANPATH=/nix/var/nix/profiles/default/share/man:\$HOME/.nix-profile/share/man:\$MANPATH" >> ~/nix.sh
-COPY default.nix ./
+COPY build.nix ./
 RUN /bin/bash -c " \
     source ~/nix.sh; \
     nix-env -i git; \
-    git clone https://github.com/usnistgov/pfhub; \
-    nix-shell;"
+    nix-env -if build.nix; \
+    git clone https://github.com/usnistgov/pfhub;"
 
-EXPOSE 4000
+RUN echo "source ~/nix.sh" >> ~/.bashrc
 WORKDIR $HOME/pfhub
-ENV SHELL /bin/bash
-CMD source $HOME/nix.sh
+EXPOSE 4000

@@ -19,11 +19,16 @@ Pull the Docker Instance from Dockerhub
 Run the container
 
     $ docker run -i -t -p 4000:4000 wd15/pfhub:latest
+
+and then
+
     # jekyll serve --host 0.0.0.0
 
-View the website at http://127.0.0.1:4000.
+to view the website at http://127.0.0.1:4000/pfhub/ on the host.
 
 ## Build the Docker instance
+
+Clone this repository and run
 
     $ docker build -t wd15/pfhub:latest .
 
