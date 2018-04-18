@@ -10,7 +10,7 @@ https://gricad.github.io/calcul/nix/tuto/2017/07/04/nix-tutorial.html#install-ni
 
 Set up Nix so that you just need to do `source ~/nix.sh` to use it
 
-    $ cp /nix/var/nix/profiles/default/etc/profile.d/nix.sh ~/nix.sh
+    $ cp ~/.nix-profile/etc/profile.d/nix.sh ~/nix.sh
 
 Update permisssions:
 

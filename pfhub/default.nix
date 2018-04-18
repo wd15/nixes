@@ -34,10 +34,12 @@ in
       pypi2nix.packages."vega"
       pypi2nix.packages."progressbar2"
       python36Packages.pytest
+      pkgs.nodejs
       node.mocha
       node.coffeelint
       node."assert"
       node.surge
+      node.execjs
     ];
   src=./.;
 }

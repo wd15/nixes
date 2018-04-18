@@ -3,5 +3,7 @@
     "coffeelint",
     "mocha",
     "assert",
-    "surge"
+    "surge",
+    "coffee",
+    "execjs"
 ]
