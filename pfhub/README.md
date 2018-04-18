@@ -2,7 +2,7 @@
 
 Nix expression to host the [PFHub website](https://github.com/usnistgov/pfhub).
 
-# Usage
+## Usage
 
 Follow the [Nix notes](../NIX-NOTES.md) for installing Nix. After
 installing Nix and cloning this repository, run
@@ -17,6 +17,16 @@ including
     $ jekyll serve
 
 to view the website locally.
+
+## Install
+
+It's also possible to install PFHub in a clean Nix profile.
+
+    $ nix-env -if build.nix
+
+and then run
+
+    $ jekyll serve
 
 ## Update Packages
 
