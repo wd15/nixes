@@ -1,9 +1,7 @@
-#{ nixpkgs ? import ./nixpkgs_version.nix }:
-{ nixpkgs ? import <nixpkgs> {} }:
+{ nixpkgs ? import ./nixpkgs_version.nix }:
 let
-  # pypi2nix = import ./requirements.nix { inherit pkgs; };
-
   python36Packages = nixpkgs.python36Packages;
+  gmsh = import ./gmsh.nix { inherit nixpkgs; };
   fipy = nixpkgs.python36Packages.buildPythonPackage rec {
     pname = "fipy";
     version = "3.1.3.dev256+g43bbbd65";
@@ -23,7 +21,6 @@ let
       nixpkgs.pkgs.python27
       python36Packages.numpy
       python36Packages.scipy
-      nixpkgs.pkgs.gmsh
     ];
     meta = {
       homepage = "https://www.ctcms.nist.gov/fipy/";
@@ -34,13 +31,12 @@ let
   };
 in
   nixpkgs.stdenv.mkDerivation rec {
-    name = "fipy3-env";
+    name = "fipy-py3-env";
     env = nixpkgs.buildEnv { name=name; paths=buildInputs; };
     buildInputs = [
       python36Packages.numpy
       python36Packages.scipy
       fipy
-      nixpkgs.pkgs.gmsh
-      nixpkgs.gfortran.cc.lib
+      gmsh
     ];
   }
