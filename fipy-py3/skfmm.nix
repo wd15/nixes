@@ -9,6 +9,5 @@ nixpkgs.python36Packages.buildPythonPackage rec {
   doCheck=false;
   buildInputs = [
     nixpkgs.python36Packages.numpy
-    nixpkgs.pkgs.gfortran
   ];
 }
