@@ -2,6 +2,7 @@
 let
   python36Packages = nixpkgs.python36Packages;
   gmsh = import ./gmsh.nix { inherit nixpkgs; };
+  skfmm = import ./skfmm.nix { inherit nixpkgs; };
   fipy = nixpkgs.python36Packages.buildPythonPackage rec {
     pname = "fipy";
     version = "3.1.3.dev256+g43bbbd65";
@@ -38,5 +39,6 @@ in
       python36Packages.scipy
       fipy
       gmsh
+      skfmm
     ];
   }
