@@ -4,6 +4,7 @@ let
   gmsh = import ./gmsh.nix { inherit nixpkgs; };
   skfmm = import ./skfmm.nix { inherit nixpkgs; };
   fipy = import ./fipy.nix { inherit nixpkgs; };
+  nbval = import ./nbval.nix { inherit nixpkgs; };
 in
   nixpkgs.stdenv.mkDerivation rec {
     name = "fipy-py3-env";
@@ -11,8 +12,10 @@ in
     buildInputs = [
       python36Packages.numpy
       python36Packages.scipy
+      python36Packages.pytest
       fipy
       gmsh
       skfmm
+      nbval
     ];
   }
