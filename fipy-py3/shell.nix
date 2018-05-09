@@ -10,6 +10,8 @@ in
     name = "fipy-py3-env";
     env = nixpkgs.buildEnv { name=name; paths=buildInputs; };
     buildInputs = [
+      python36Packages.jupyter
+      python36Packages.matplotlib
       python36Packages.numpy
       python36Packages.scipy
       python36Packages.pytest

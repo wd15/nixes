@@ -1,5 +1,4 @@
-{ nixpkgs ? import <nixpkgs> {}
-}:
+{ nixpkgs ? import <nixpkgs> {} }:
 let
   python36Packages = nixpkgs.python36Packages;
 in
@@ -19,5 +18,4 @@ in
     python36Packages.coverage
     python36Packages.pytest
   ];
-
 }
