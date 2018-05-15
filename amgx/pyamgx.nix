@@ -16,6 +16,7 @@ in
       nixpkgs.python27Packages.scipy
       nixpkgs.python27Packages.numpy
       amgx
+      nixpkgs.python27Packages.cython
     ];
     AMGX_DIR = "/blah";
     # shellHook = ''

@@ -18,6 +18,7 @@ in
       fipy
       skfmm
       pyamgx
+      nixpkgs.python27Packages.cython
     ];
     AMGX_DIR = "${amgx.out}";
   }
