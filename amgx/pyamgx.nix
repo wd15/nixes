@@ -18,8 +18,5 @@ in
       amgx
       nixpkgs.python27Packages.cython
     ];
-    AMGX_DIR = "/blah";
-    # shellHook = ''
-    #   export AMGX_DIR = "/blah"
-    # '';
+    AMGX_DIR = "${amgx.out}";
   }
