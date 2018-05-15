@@ -5,6 +5,7 @@ let
   skfmm = import ../fipy-py2/skfmm.nix { inherit nixpkgs; };
   gmsh = import ../fipy-py2/gmsh.nix { inherit nixpkgs; };
   pyamgx = import  ./pyamgx.nix { inherit nixpkgs; };
+  amgx = import  ./amgx.nix { inherit nixpkgs; };
 in
   nixpkgs.stdenv.mkDerivation rec {
     name = "pyamgx-env";
@@ -18,4 +19,5 @@ in
       skfmm
       pyamgx
     ];
+    AMGX_DIR = "${amgx.out}";
   }

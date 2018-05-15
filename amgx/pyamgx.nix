@@ -17,5 +17,8 @@ in
       nixpkgs.python27Packages.numpy
       amgx
     ];
-    AMGX_DIR = "";
+    AMGX_DIR = "/blah";
+    # shellHook = ''
+    #   export AMGX_DIR = "/blah"
+    # '';
   }
