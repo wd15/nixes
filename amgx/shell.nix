@@ -4,7 +4,8 @@ let
   fipy = import ../fipy-py2/fipy.nix { inherit nixpkgs; };
   skfmm = import ../fipy-py2/skfmm.nix { inherit nixpkgs; };
   gmsh = import ../fipy-py2/gmsh.nix { inherit nixpkgs; };
-  amgx = import ./amgx.nix { inherit nixpkgs; };
+  pyamgx = import  ./pyamgx.nix { inherit nixpkgs; };
+  amgx = import  ./amgx.nix { inherit nixpkgs; };
 in
   nixpkgs.stdenv.mkDerivation rec {
     name = "pyamgx-env";
@@ -16,6 +17,8 @@ in
       nixpkgs.python27Packages.matplotlib
       fipy
       skfmm
-      amgx
+      pyamgx
+      nixpkgs.python27Packages.cython
     ];
+    AMGX_DIR = "${amgx.out}";
   }
