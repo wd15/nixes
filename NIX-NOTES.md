@@ -6,6 +6,32 @@ Use this tutorial to get started with Nix
 
 https://gricad.github.io/calcul/nix/tuto/2017/07/04/nix-tutorial.html#install-nix-single-user-mode
 
+### Issues
+
+#### error setting certificate verify locations
+
+Sometimes install Nix on older versions of linus you get
+
+```
+curl: (77) error setting certificate verify locations:
+```
+
+use
+
+```
+$ export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+```
+
+to fix this.
+
+#### Install in non-standard location
+
+Read [this](https://stackoverflow.com/questions/29236953/can-nix-be-installed-in-a-different-location-other-than-nix).
+
+Basically, put `export NIX_IGNORE_SYMLINK_STORE=1` at the end of
+`nix.sh` and before running the install script. Use `ln -s
+/path/to/nix /nix` before installing nix.
+
 ## After Installing
 
 Set up Nix so that you just need to do `source ~/nix.sh` to use it
