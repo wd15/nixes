@@ -14,7 +14,7 @@ in
 
     buildInputs = [
       nixpkgs.pkgs.cmake
-      nixpkgs.pkgs.cudatoolkit
+      nixpkgs.pkgs.cudatoolkit9
     ];
 
     unpackPhase = ''

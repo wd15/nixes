@@ -8,8 +8,8 @@ in
     src = nixpkgs.fetchFromGitHub {
       owner = "shwina";
       repo = pname;
-      rev = "df32133e38211c4351d33e8c9f1f16f029cf7eb3";
-      sha256 = "0i996ymd6bws4k18clgwwmwy99d662gmmhc2qbn0vf4nr9659vf4";
+      rev = "fac3c841e1527942da64c7d1805d1ffe94f58766";
+      sha256 = "1752yhhq82980qhn5i8mngjlybkgvp96qlgnv6y5cdn8921m8h2s";
     };
     doCheck=false;
     buildInputs = [
