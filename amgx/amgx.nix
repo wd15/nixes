@@ -14,7 +14,7 @@ in
 
     buildInputs = [
       nixpkgs.pkgs.cmake
-      nixpkgs.pkgs.cudatoolkit9
+      nixpkgs.pkgs.cudatoolkit8
     ];
 
     unpackPhase = ''
@@ -27,7 +27,7 @@ in
       mkdir -p build
       cd build
       mkdir --parents "$out"
-      cmake -DCMAKE_INSTALL_PREFIX:PATH="$out" ../
+      cmake -DCMAKE_INSTALL_PREFIX:PATH="$out" -DCUDA_ARCH="35" ../
     '';
 
     buildPhase = ''
