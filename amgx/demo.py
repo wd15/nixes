@@ -1,11 +1,13 @@
-import numpy
+import numpy as np
+import scipy.sparse as sparse
+import scipy.sparse.linalg as splinalg
 import pyamgx
 import os
 
 pyamgx.initialize()
 
 # Initialize config and resources:
-cfg = pyamgx.Config().create_from_file(os.environ['AMGX_DIR']+'/lib/configs/core/FGMRES_AGGREGATION.json')
+cfg = pyamgx.Config().create_from_file(os.environ['AMGX_DIR']+'/lib/configs/core/FGMRES_NOPREC.json')
 rsc = pyamgx.Resources().create_simple(cfg)
 
 # Create matrices and vectors:
