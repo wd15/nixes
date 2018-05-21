@@ -27,7 +27,7 @@ in
       mkdir -p build
       cd build
       mkdir --parents "$out"
-      cmake -DCMAKE_INSTALL_PREFIX:PATH="$out" -DCUDA_ARCH="35" ../
+      cmake -DCMAKE_INSTALL_PREFIX:PATH="$out" ../
     '';
 
     buildPhase = ''
