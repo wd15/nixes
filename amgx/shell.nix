@@ -1,24 +1,21 @@
 let
   inherit (import <nixpkgs> {}) fetchFromGitHub;
   nixpkgs = import ../fipy-py2/nixpkgs_version.nix;
-  fipy = import ../fipy-py2/fipy.nix { inherit nixpkgs; };
-  skfmm = import ../fipy-py2/skfmm.nix { inherit nixpkgs; };
-  gmsh = import ../fipy-py2/gmsh.nix { inherit nixpkgs; };
-  pyamgx = import  ./pyamgx.nix { inherit nixpkgs; };
-  amgx = import  ./amgx.nix { inherit nixpkgs; };
+  pyamgx = import ./pyamgx.nix { inherit nixpkgs; };
+  amgx = import ./amgx.nix { inherit nixpkgs; };
 in
   nixpkgs.stdenv.mkDerivation rec {
-    name = "pyamgx-env";
+    name = "pyamgx-py27-env";
     env = nixpkgs.buildEnv { name=name; paths=buildInputs; };
     buildInputs = [
+      pyamgx
       nixpkgs.python27Packages.numpy
       nixpkgs.python27Packages.scipy
-      nixpkgs.python27Packages.jupyter
-      nixpkgs.python27Packages.matplotlib
-      fipy
-      skfmm
-      pyamgx
-      nixpkgs.python27Packages.cython
     ];
     AMGX_DIR = "${amgx.out}";
+    
+    shellHook = ''
+      export LD_LIBRARY_PATH=${nixpkgs.stdenv.cc.cc.lib}/lib:$LD_LIBRARY_PATH
+      export LD_PRELOAD="/usr/lib/x86_64-linux-gnu/libcuda.so /usr/lib/nvidia-384/libnvidia-fatbinaryloader.so.384.111";
+    '';
   }

@@ -1,6 +1,3 @@
-import numpy as np
-import scipy.sparse as sparse
-import scipy.sparse.linalg as splinalg
 import pyamgx
 import os
 
