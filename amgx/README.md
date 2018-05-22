@@ -9,7 +9,7 @@ Nix](https://nixos.org/nix/manual/#chap-quick-start).
 
 ## Update `shell.nix`
 
-Change the following line in `shell.nix` to point at the correct CUDA
+Change the following line in `env.nix` to point at the correct CUDA
 drivers.
 
 ```
@@ -26,4 +26,10 @@ and test with
 
     $ python demo.py
 
-`shell.nix` can be amended to add more Python libraries.
+`env.nix` can be amended to add more Python libraries.
+
+To install with Python 2.7 use
+
+    $ nix-shell shell-py27.nix
+
+instead.

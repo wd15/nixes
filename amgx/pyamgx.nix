@@ -1,8 +1,8 @@
-{ nixpkgs ? import <nixpkgs> {} }:
+{ nixpkgs, pypkgs}:
 let
   amgx = import ./amgx.nix { inherit nixpkgs; };
 in
-  nixpkgs.python27Packages.buildPythonPackage rec {
+  pypkgs.buildPythonPackage rec {
     pname = "pyamgx";
     version = "";
     src = nixpkgs.fetchFromGitHub {
@@ -13,10 +13,10 @@ in
     };
     doCheck=true;
     buildInputs = [
-      nixpkgs.python27Packages.scipy
-      nixpkgs.python27Packages.numpy
+      pypkgs.scipy
+      pypkgs.numpy
       amgx
-      nixpkgs.python27Packages.cython
+      pypkgs.cython
     ];
     AMGX_DIR = "${amgx.out}";
   }
