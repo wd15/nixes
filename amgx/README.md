@@ -33,3 +33,9 @@ To install with Python 2.7 use
     $ nix-shell shell-py27.nix
 
 instead.
+
+## Develop fipy
+
+Firstly clone fipy into `fipy/` and then use
+
+    $ nix-shell fipy-develop.py
