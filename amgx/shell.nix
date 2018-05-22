@@ -1,6 +1,5 @@
 let
-  inherit (import <nixpkgs> {}) fetchFromGitHub;
-  nixpkgs = import ../fipy-py2/nixpkgs_version.nix;
+  nixpkgs = import ./nixpkgs_version.nix;
   pyamgx = import ./pyamgx.nix { inherit nixpkgs; };
   amgx = import ./amgx.nix { inherit nixpkgs; };
 in
