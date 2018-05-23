@@ -5,6 +5,7 @@ let
   skfmm = import ./skfmm.nix { inherit nixpkgs; };
   fipy = import ./fipy.nix { inherit nixpkgs; };
   nbval = import ./nbval.nix { inherit nixpkgs; };
+  pytest-cov = import ./pytest-cov.nix { inherit nixpkgs; };
 in
   nixpkgs.stdenv.mkDerivation rec {
     name = "fipy-py3-env";
@@ -15,6 +16,7 @@ in
       python36Packages.numpy
       python36Packages.scipy
       python36Packages.pytest
+      pytest-cov
       fipy
       gmsh
       skfmm
