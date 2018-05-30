@@ -15,5 +15,7 @@ in
       gmsh
       skfmm
       pysparse
+      nixpkgs.python27Packages.matplotlib
+      nixpkgs.python27Packages.tkinter
     ];
   }
