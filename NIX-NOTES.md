@@ -57,6 +57,11 @@ Also add this env variable, which is useful:
 Set up the man pages correctly:
 
     $ echo "export MANPATH=/nix/var/nix/profiles/default/share/man:\$HOME/.nix-profile/share/man:\$MANPATH" >> ~/nix.sh
+
+and
+   
+    $ echo "export LC_ALL=C"
+    
 To start using Nix use
 
     $ source ~/nix.sh
