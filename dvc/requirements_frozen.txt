@@ -1,0 +1,14 @@
+appdirs==1.4.3
+configparser==3.5.0
+decorator==4.3.0
+gitdb2==2.0.4
+GitPython==2.1.11
+jsonpath-rw==1.4.0
+nanotime==0.5.2
+ntfsutils==0.1.4
+packaging==16.8
+ply==3.11
+pyparsing==2.2.0
+six==1.11.0
+smmap2==2.0.4
+zc.lockfile==1.3.0
