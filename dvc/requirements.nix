@@ -92,6 +92,77 @@ let
 
 
 
+    "PyYAML" = python.mkDerivation {
+      name = "PyYAML-3.13";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"; sha256 = "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "http://pyyaml.org/wiki/PyYAML";
+        license = licenses.mit;
+        description = "YAML parser and emitter for Python";
+      };
+    };
+
+
+
+    "awscli" = python.mkDerivation {
+      name = "awscli-1.15.79";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/78/0c/e12a7c1f4367501bf4c3477c49cc672601deddcfd9207f36f4b8674b2c2a/awscli-1.15.79.tar.gz"; sha256 = "c7fda8668eeee881f0aa74c8e059f886b953ea35c32e809792d8d5e4847965ff"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [
+      self."PyYAML"
+      self."botocore"
+      self."colorama"
+      self."docutils"
+      self."rsa"
+      self."s3transfer"
+    ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "http://aws.amazon.com/cli/";
+        license = licenses.asl20;
+        description = "Universal Command Line Environment for AWS.";
+      };
+    };
+
+
+
+    "botocore" = python.mkDerivation {
+      name = "botocore-1.10.78";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/e1/c3/fc2625f83f3c00f8af52cceed1b5de07bbf90fbe15b9cb8070f1b90e566a/botocore-1.10.78.tar.gz"; sha256 = "fd4dca165c7ef1e6d0721af433b50b1459a78ee917fee68d207dca703aabf71f"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [
+      self."docutils"
+      self."jmespath"
+      self."python-dateutil"
+    ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "https://github.com/boto/botocore";
+        license = licenses.asl20;
+        description = "Low-level, data-driven core of boto 3.";
+      };
+    };
+
+
+
+    "colorama" = python.mkDerivation {
+      name = "colorama-0.3.9";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/e6/76/257b53926889e2835355d74fec73d82662100135293e17d382e2b74d1669/colorama-0.3.9.tar.gz"; sha256 = "48eb22f4f8461b1df5734a074b57042430fb06e1d61bd1e11b078c0fe6d7a1f1"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "https://github.com/tartley/colorama";
+        license = licenses.bsdOriginal;
+        description = "Cross-platform colored terminal text.";
+      };
+    };
+
+
+
     "configparser" = python.mkDerivation {
       name = "configparser-3.5.0";
       src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/7c/69/c2ce7e91c89dc073eb1aa74c0621c3eefbffe8216b3f9af9d3885265c01c/configparser-3.5.0.tar.gz"; sha256 = "5308b47021bc2340965c371f0f058cc6971a04502638d4244225c49d80db273a"; };
@@ -122,6 +193,21 @@ let
 
 
 
+    "docutils" = python.mkDerivation {
+      name = "docutils-0.14";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/84/f4/5771e41fdf52aabebbadecc9381d11dea0fa34e4759b4071244fa094804c/docutils-0.14.tar.gz"; sha256 = "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "http://docutils.sourceforge.net/";
+        license = licenses.publicDomain;
+        description = "Docutils -- Python Documentation Utilities";
+      };
+    };
+
+
+
     "gitdb2" = python.mkDerivation {
       name = "gitdb2-2.0.4";
       src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/b9/36/4bdb753087a9232899ac482ee2d5da25f50b63998d661aa4e8170acd95b5/gitdb2-2.0.4.tar.gz"; sha256 = "bb4c85b8a58531c51373c89f92163b92f30f81369605a67cd52d1fc21246c044"; };
@@ -134,6 +220,21 @@ let
         homepage = "https://github.com/gitpython-developers/gitdb";
         license = licenses.bsdOriginal;
         description = "Git Object Database";
+      };
+    };
+
+
+
+    "jmespath" = python.mkDerivation {
+      name = "jmespath-0.9.3";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/e5/21/795b7549397735e911b032f255cff5fb0de58f96da794274660bca4f58ef/jmespath-0.9.3.tar.gz"; sha256 = "6a81d4c9aa62caf061cb517b4d9ad1dd300374cd4706997aff9cd6aedd61fc64"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "https://github.com/jmespath/jmespath.py";
+        license = licenses.mit;
+        description = "JSON Matching Expressions";
       };
     };
 
@@ -198,6 +299,72 @@ let
         homepage = "http://www.dabeaz.com/ply/";
         license = licenses.bsdOriginal;
         description = "Python Lex & Yacc";
+      };
+    };
+
+
+
+    "pyasn1" = python.mkDerivation {
+      name = "pyasn1-0.4.4";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/10/46/059775dc8e50f722d205452bced4b3cc965d27e8c3389156acd3b1123ae3/pyasn1-0.4.4.tar.gz"; sha256 = "f58f2a3d12fd754aa123e9fa74fb7345333000a035f3921dbdaa08597aa53137"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [ ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "https://github.com/etingof/pyasn1";
+        license = licenses.bsdOriginal;
+        description = "ASN.1 types and codecs";
+      };
+    };
+
+
+
+    "python-dateutil" = python.mkDerivation {
+      name = "python-dateutil-2.7.3";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/a0/b0/a4e3241d2dee665fea11baec21389aec6886655cd4db7647ddf96c3fad15/python-dateutil-2.7.3.tar.gz"; sha256 = "e27001de32f627c22380a688bcc43ce83504a7bc5da472209b4c70f02829f0b8"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [
+      self."six"
+    ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "https://dateutil.readthedocs.io";
+        license = licenses.bsdOriginal;
+        description = "Extensions to the standard Python datetime module";
+      };
+    };
+
+
+
+    "rsa" = python.mkDerivation {
+      name = "rsa-3.4.2";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/14/89/adf8b72371e37f3ca69c6cb8ab6319d009c4a24b04a31399e5bd77d9bb57/rsa-3.4.2.tar.gz"; sha256 = "25df4e10c263fb88b5ace923dd84bf9aa7f5019687b5e55382ffcdb8bede9db5"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [
+      self."pyasn1"
+    ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "https://stuvel.eu/rsa";
+        license = "License :: OSI Approved :: Apache Software License";
+        description = "Pure-Python RSA implementation";
+      };
+    };
+
+
+
+    "s3transfer" = python.mkDerivation {
+      name = "s3transfer-0.1.13";
+      src = pkgs.fetchurl { url = "https://files.pythonhosted.org/packages/9a/66/c6a5ae4dbbaf253bd662921b805e4972451a6d214d0dc9fb3300cb642320/s3transfer-0.1.13.tar.gz"; sha256 = "90dc18e028989c609146e241ea153250be451e05ecc0c2832565231dacdf59c1"; };
+      doCheck = commonDoCheck;
+      buildInputs = commonBuildInputs;
+      propagatedBuildInputs = [
+      self."botocore"
+    ];
+      meta = with pkgs.stdenv.lib; {
+        homepage = "https://github.com/boto/s3transfer";
+        license = licenses.asl20;
+        description = "An Amazon S3 Transfer Manager";
       };
     };
 

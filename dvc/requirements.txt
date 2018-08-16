@@ -5,3 +5,4 @@ nanotime
 ntfsutils
 ply
 configparser
+awscli
