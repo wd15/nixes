@@ -45,14 +45,18 @@ Update permisssions:
 Do this for purity:
 
     $ echo -e "unset PATH\n$(cat ~/nix.sh)" > ~/nix.sh
-
-Update the path again
-
-    $ echo "export PATH=\$PATH:/nix/var/nix/profiles/default/bin:/bin:/usr/bin" >> ~/nix.sh
-
+  
 Also add this env variable, which is useful:
 
     $ echo "export NIX_USER_PROFILE_DIR=/nix/var/nix/profiles/per-user/\$USER " >> ~/nix.sh
+
+Update the path again
+
+    $ echo "export PATH=\$PATH:\$NIX_USRE_PROFILE_DIR/default/bin:/bin:/usr/bin" >> ~/nix.sh
+
+## More changes
+
+These don't seem necessary since Nix 2.0.
 
 Set up the man pages correctly:
 
