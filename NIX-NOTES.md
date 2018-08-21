@@ -52,7 +52,7 @@ Also add this env variable, which is useful:
 
 Update the path again
 
-    $ echo "export PATH=\$PATH:\$NIX_USRE_PROFILE_DIR/default/bin:/bin:/usr/bin" >> ~/nix.sh
+    $ echo "export PATH=\$PATH:\$NIX_USER_PROFILE_DIR/default/bin:/bin:/usr/bin" >> ~/nix.sh
 
 ## More changes
 
