@@ -32,6 +32,11 @@ Basically, put `export NIX_IGNORE_SYMLINK_STORE=1` at the end of
 `nix.sh` and before running the install script. Use `ln -s
 /path/to/nix /nix` before installing nix.
 
+#### If you already have Nix
+
+    $ nix-env -S /nix/var/nix/profiles/default
+    $ curl https://nixos.org/nix/install | sh
+
 ## After Installing
 
 Set up Nix so that you just need to do `source ~/nix.sh` to use it
