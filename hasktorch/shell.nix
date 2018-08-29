@@ -19,14 +19,15 @@ in
       nixpkgs.ghc
       nixpkgs.zlib
       aten
+      nixpkgs.gd
+      nixpkgs.fontconfig
+      nixpkgs.freetype
+      nixpkgs.expat
     ];
-    dontBuild = true;
-    buildPhase = ''
-       ls $hasktorch
-       echo "skipping build phase..."
-    '';
-    installPhase = ''
-       mkdir -p $out
-       #cabal new-build all --flags=-cuda
+    shellHook = ''
+      \rm -rf ./source
+      unpackPhase
+      cd ./source
+      cabal new-build all --flags=-cuda
     '';
   }
