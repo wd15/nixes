@@ -10,7 +10,7 @@ https://gricad.github.io/calcul/nix/tuto/2017/07/04/nix-tutorial.html#install-ni
 
 #### error setting certificate verify locations
 
-Sometimes install Nix on older versions of linus you get
+Sometimes installing Nix with older versions of linux gives
 
 ```
 curl: (77) error setting certificate verify locations:
