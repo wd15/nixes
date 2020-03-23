@@ -3,6 +3,6 @@ progressbar2==3.34.3
 pykwalify==1.6.0
 python-dateutil==2.6.1
 python-utils==2.2.0
-PyYAML==3.12
+PyYAML==5.1
 six==1.11.0
 vega==0.5.0
