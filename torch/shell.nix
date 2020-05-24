@@ -32,6 +32,7 @@ in
       torchvision
       pillow
       pkgs.cudatoolkit
+      imageio
     ];
     src = null;
     ##src=builtins.filterSource (path: type: type != "directory" || baseNameOf path != ".git") ./.;
