@@ -1,12 +1,15 @@
 # To use this environment use:
 #
-#     $ export JUPYTER=
+#     $ export NIXES=https://github.com/wd15/nixes/archive/refs/heads/master.zip
 #     $ export NIXPKGS=export NIXPKGS=https://github.com/NixOS/nixpkgs/archive/21.05.tar.gz
-#     $ nix-shell --pure -I nixpkgs=${NIXPKGS} -p 'python3Packages.callPackage <JUPYTER> {}'
+#     $ nix-shell --pure -I nixpkgs=${NIXPKGS} -I nixes=${NIXES} -p 'python3Packages.callPackage <nixes/jupyter> {}'
 #
 # or to use in a subsequent derivation
 #
-#     jupyter_extra = pypkgs.callPackage ...
+#     jupyter_src = builtins.fetchTarball "https://github.com/wd15/nixes/archive/refs/heads/master.zip";
+#     jupyter_extra = pypkgs.callPackage "${jupyter_src}/jupyter/default.nix";
+#
+# and then jupyter_extra can be used in buildInputs as part of a new derivation.
 {
   fetchPypi,
   buildPythonPackage,
