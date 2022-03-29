@@ -1,4 +1,7 @@
 *~
 #*
 .logamgx
-torch/Deep_Learning_with_PyTorch_v11.pdf
+torch/Deep_Learning_with_PyTorch.pdf
+torch/*.ipynb
+torch/.local
+torch/ct_scan_code

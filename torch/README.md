@@ -1,5 +1,20 @@
 # Play with pytorch
 
+## Setting up Cuda
+
+I followed this to install the 435 drivers which work with the
+specified version of the Cuda toolkit
+
+https://towardsdatascience.com/deep-learning-gpu-installation-on-ubuntu-18-4-9b12230a1d31
+
+or
+
+    $ apt-get install nvidia-cuda-toolkit
+
+## Cuda compatibility chart
+
+https://docs.nvidia.com/deploy/cuda-compatibility/index.html
+
 ## Running on a remote server
 
 Running the notebook on a remote server with a GPU via another server
